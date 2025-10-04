@@ -2,13 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Flappy Bird HTML/CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flappy Bird</title>
     <link rel="stylesheet" href="flappybird.css" />
+    <script src="flappybird.js"></script>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: skyblue;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <div class="game-container">
-      <img class="background" src="flappybirdbg.png" alt="Background" />
-      <img class="bird" src="flappybird.png" alt="Flappy Bird" />
-    </div>
+    <canvas id="board"></canvas>
   </body>
 </html>
