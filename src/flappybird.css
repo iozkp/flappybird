@@ -9,22 +9,6 @@ html {
   background-color: #70c5ce;
 }
 
-.game-container {
-  position: relative;
-  width: 288px;
-  height: 512px;
-}
-
-.background {
-  width: 100%;
-  height: 100%;
+canvas {
   display: block;
-}
-
-.bird {
-  position: absolute;
-  top: 200px;
-  left: 50px;
-  width: 34px;
-  height: 24px;
 }

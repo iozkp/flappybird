@@ -1,27 +1,28 @@
-//board
+// board
 let board;
 let boardWidth = 360;
 let boardHeight = 640;
 let context;
 
-//bird
-let birdWidth = 34; //width/height ratio = 408/228 = 17/12
+// bird
+let birdWidth = 34;
 let birdHeight = 24;
 let birdX = boardWidth / 8;
 let birdY = boardHeight / 2;
 let birdImg;
 
-//pipes
+// pipes
 let pipeWidth = 64;
 let pipeHeight = 200;
-let pipeX = boardWidth - 100;
-let pipeY = 0;
 let gap = 150;
+let topPipeX = boardWidth - 120;
+let topPipeY = 0;
+let bottomPipeY = pipeHeight + gap;
 
+// images
+let backgroundImg;
 let topPipeImg;
 let bottomPipeImg;
-
-let backgroundImg;
 
 window.onload = function () {
   board = document.getElementById("board");
@@ -29,7 +30,6 @@ window.onload = function () {
   board.height = boardHeight;
   context = board.getContext("2d");
 
-  //load images
   backgroundImg = new Image();
   backgroundImg.src = "flappybirdbg.png";
 
@@ -54,10 +54,15 @@ function drawScene() {
   // Bird
   context.drawImage(birdImg, birdX, birdY, birdWidth, birdHeight);
 
-  // Top pipe
-  context.drawImage(topPipeImg, pipeX, 0, pipeWidth, pipeHeight);
+  // Top Pipe
+  context.drawImage(topPipeImg, topPipeX, topPipeY, pipeWidth, pipeHeight);
 
-  // Bottom pipe
-  let bottomPipeY = pipeHeight + gap;
-  context.drawImage(bottomPipeImg, pipeX, bottomPipeY, pipeWidth, pipeHeight);
+  // Bottom Pipe
+  context.drawImage(
+    bottomPipeImg,
+    topPipeX,
+    bottomPipeY,
+    pipeWidth,
+    pipeHeight
+  );
 }
