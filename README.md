@@ -18,3 +18,5 @@ A special thanks to https://github.com/ImKennyYip/flappy-bird for the reference 
    - Move the bird up.
 4. Let the bird fall slowly (because of gravity).
 5. Redraw everything again and again.
+
+<!-- test of test branch -->
