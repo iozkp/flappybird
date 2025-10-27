@@ -43,16 +43,23 @@ window.onload = function () {
   bottomPipeImg.src = "bottompipe.png";
 
   bottomPipeImg.onload = function () {
-    drawScene();
+    requestAnimationFrame(update);
   };
+
+  window.addEventListener("keydown", function (e) {
+    if (e.code === "Space") {
+      birdY -= 30;
+      if (birdY < 0) birdY = 0;
+    }
+  });
 };
 
 function drawScene() {
+  // Clear canvas first
+  context.clearRect(0, 0, board.width, board.height);
+
   // Background
   context.drawImage(backgroundImg, 0, 0, boardWidth, boardHeight);
-
-  // Bird
-  context.drawImage(birdImg, birdX, birdY, birdWidth, birdHeight);
 
   // Top Pipe
   context.drawImage(topPipeImg, topPipeX, topPipeY, pipeWidth, pipeHeight);
@@ -65,4 +72,17 @@ function drawScene() {
     pipeWidth,
     pipeHeight
   );
+
+  // Bird
+  context.drawImage(birdImg, birdX, birdY, birdWidth, birdHeight);
+}
+
+function update() {
+  if (birdY + birdHeight < boardHeight) {
+    birdY += 2;
+  }
+
+  drawScene();
+
+  requestAnimationFrame(update);
 }
